@@ -20,12 +20,11 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <h5 class="text-center">BIENVENIDO</h5>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <h4>&#x1f43e DOG-TORS</h4>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -36,11 +35,16 @@
                     <ul class="navbar-nav mr-auto">
                         @guest
                         @else                        
-                            <a class="nav-item nav-link" href="">Usuario</a>
-                            <a class="nav-item nav-link" href="">Item</a>
-                            <a class="nav-item nav-link" href="">Ingreso</a>
-                            <a class="nav-item nav-link" href="">Egreso</a>
-                            <a class="nav-item nav-link" href="">Saldo</a>
+                            <a class="nav-item nav-link" href="{{ route('usuario') }}">Usuario</a>
+                            <a class="nav-item nav-link" href="">Clientes</a>
+                            <a class="nav-item nav-link" href="">Proveedores</a>
+                            <a class="nav-item nav-link" href="">Categorias</a>
+                            <a class="nav-item nav-link" href="">Servicios</a>
+                            <a class="nav-item nav-link" href="">Productos</a>
+                            <a class="nav-item nav-link" href="">Compras</a>
+                            <a class="nav-item nav-link" href="">Ventas</a>
+                            <a class="nav-item nav-link" href="">Noticias</a>
+                            <a class="nav-item nav-link" href="">Promociones</a>
                         @endguest 
                     </ul>
 
