@@ -6,20 +6,24 @@
     <h1 class="page-header text-center">Lista de Clientes</h1>
     <hr>
     <div class="row">
-        <div class="col-md-10 offset-md-1">
+        <div class="col-md-9 offset-md-4">
             <a href="{{ route('clientes.create') }}" class="btn btn-primary">Registrar Nuevo</a>
+            @if (Session::has('message'))
+                <div class="alert alert-info">{{ Session::get('message') }}
+                </div>
+            @endif
             <div class="table">
                 <table class="table table-hover">
-                    <thead>
+                    <thead class="thead-dark">
                         <tr>
                             <th colspan="2">Acciones</th>
-                            <th>Nombre</th>
+                            <th>Nombres</th>
                             <th>Apellidos</th>
                             <th>Telefono</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($users as $data)
+                        @foreach($clientes as $data)
                             <tr>
                                 <td width="10px">
                                     <a href="{{route('clientes.edit', $data->id)}}" class="btn btn-success btn-sm">Editar</a>

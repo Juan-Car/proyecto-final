@@ -14,12 +14,13 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="stylesheet" href="css/es.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="fondo">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container">
@@ -35,10 +36,10 @@
                     <ul class="navbar-nav mr-auto">
                         @guest
                         @else                        
-                            <a class="nav-item nav-link" href="{{ route('usuario') }}">Usuario</a>
-                            <a class="nav-item nav-link" href="">Clientes</a>
-                            <a class="nav-item nav-link" href="">Proveedores</a>
-                            <a class="nav-item nav-link" href="">Categorias</a>
+                            <a class="nav-item nav-link" href="{{route('usuario')}}">Usuario</a>
+                            <a class="nav-item nav-link" href="{{route('clientes.index')}}">Clientes</a>
+                            <a class="nav-item nav-link" href="{{route('proveedors.index')}}">Proveedores</a>
+                            <a class="nav-item nav-link" href="{{route('categorias.index')}}">Categorias</a>
                             <a class="nav-item nav-link" href="">Servicios</a>
                             <a class="nav-item nav-link" href="">Productos</a>
                             <a class="nav-item nav-link" href="">Compras</a>

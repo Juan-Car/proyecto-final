@@ -4,13 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Cliente;
 use Illuminate\Http\Request;
+use Session;
 
 class ClienteController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $users = Cliente::get();
-        return view('clientes.index', ['users' => $users]);
+        $clientes = Cliente::all();
+        return view('clientes.index', compact('clientes'));
     }
 
     /**
@@ -31,21 +37,26 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new Cliente();
-        $user->nombre = $request->nombre;
-        $user->apellido = $request->apellido;
-        $user->telefono = $request->telefono;
-        $user->save();
+        $request->validate([
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'telefono' => 'required',
+        ]);
+
+        Cliente::create($request->all());
+
+       
+        Session::flash('message','Cliente creado correctamente');
         return redirect()->route('clientes.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Ingreso  $ingreso
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Cliente $cliente)
     {
         //
     }
@@ -53,13 +64,12 @@ class ClienteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Ingreso  $ingreso
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Cliente $cliente)
     {
-        $user = Cliente::find($id);
-        return view('clientes.edit', compact('user'));
+        return view('clientes.edit', compact('cliente'));
     }
 
     /**
@@ -69,13 +79,18 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Cliente $cliente)
     {
-        $user = Cliente::find($id);
-        $user->nombre = $request->nombre;
-        $user->apellido = $request->apellido;
-        $user->telefono = $request->telefono;
-        $user->save();
+        $request->validate([
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'telefono' => 'required',
+        ]);
+
+
+        $cliente->update($request->all());
+       
+        Session::flash('message','Cliente actualizado correctamente');
         return redirect()->route('clientes.index');
     }
 
@@ -85,10 +100,11 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Cliente $cliente)
     {
-        $user = Cliente::find($id);
-        $user->delete();
-        return back();
+        $cliente->delete();
+
+        Session::flash('message','Cliente borrado correctamente');
+        return redirect()->route('clientes.index');
     }
 }

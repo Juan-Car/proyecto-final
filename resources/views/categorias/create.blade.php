@@ -1,23 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
 	<div class="row">
-		<div class="col-md-4 offset-md-4">
-			<h1 class="page-header text-center">Registrar Categoria</h1>
-			<form action="{{route('categorias.store')}}" method="POST">
+		<div class="col-md-4 offset-md-2">
+			<h1 class="page-header text-center">Registrar nueva Categoria</h1>
+			@if (Session::has('message'))
+			    <div class="alert alert-info">{{ Session::get('message') }}
+			    </div>
+            @endif
+			<form class="form-group" method="POST" action="{{route('categorias.store')}}">
 			@csrf
-		        <label for="nombre">Nombre</label>
+		        <label for="nombre">Nombres</label>
 				<input type="text" class="form-control" name="nombre" autocomplete="off" required>
 				<label for="descripcion">Descripcion</label>
-				<input type="text" class="form-control" name="descripcion" autocomplete="off">
-				
+				<input type="text" class="form-control" name="descripcion" autocomplete="off" required>
+				<br>
 				<a href="{{ route('categorias.index') }}" class="btn btn-danger">Cancelar</a>
 		        <button type="submit" class="btn btn-primary">Registrar</button>
-		      </div>
-		    </div>
-		  </div>
+		    </form>  
 		</div>
-	</form>
+    </div>
+</div>
 
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Proveedor;
 use Illuminate\Http\Request;
+use Session;
 
 class ProveedorController extends Controller
 {
@@ -14,7 +15,8 @@ class ProveedorController extends Controller
      */
     public function index()
     {
-        //
+        $proveedors = Proveedor::all();
+        return view('proveedors.index', compact('proveedors'));
     }
 
     /**
@@ -24,7 +26,7 @@ class ProveedorController extends Controller
      */
     public function create()
     {
-        //
+        return view('proveedors.create');
     }
 
     /**
@@ -35,13 +37,23 @@ class ProveedorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'telefono' => 'required',
+        ]);
+
+        Proveedor::create($request->all());
+
+       
+        Session::flash('message','Proveedor creado correctamente');
+        return redirect()->route('proveedors.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Proveedor  $proveedor
+     * @param  \App\Ingreso  $ingreso
      * @return \Illuminate\Http\Response
      */
     public function show(Proveedor $proveedor)
@@ -52,34 +64,47 @@ class ProveedorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Proveedor  $proveedor
+     * @param  \App\Ingreso  $ingreso
      * @return \Illuminate\Http\Response
      */
     public function edit(Proveedor $proveedor)
     {
-        //
+        return view('proveedors.edit', compact('proveedor'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Proveedor  $proveedor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Proveedor $proveedor)
     {
-        //
+        $request->validate([
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'telefono' => 'required',
+        ]);
+
+
+        $proveedor->update($request->all());
+       
+        Session::flash('message','Proveedor actualizado correctamente');
+        return redirect()->route('proveedors.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Proveedor  $proveedor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(Proveedor $proveedor)
     {
-        //
+        $proveedor->delete();
+
+        Session::flash('message','Proveedor borrado correctamente');
+        return redirect()->route('proveedors.index');
     }
 }

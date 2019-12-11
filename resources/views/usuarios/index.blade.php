@@ -6,7 +6,7 @@
     <h1 class="page-header text-center">Lista de Usuarios</h1>
     <hr>
     <div class="row">
-        <div class="col-md-10 offset-md-1">
+        <div class="col-md-10 offset-md-3">
             <div class="table">
                 <table class="table table-hover">
                     <thead class="btn-dark">
