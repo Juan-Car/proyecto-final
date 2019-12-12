@@ -20,6 +20,8 @@
 				<input type="text" class="form-control" name="apellido" autocomplete="off" value="{{$proveedor->apellido}}">
 				<label for="telefono">Telefono</label>
 				<input type="text" class="form-control" name="telefono" autocomplete="off" value="{{$proveedor->telefono}}">
+				<label for="direccion">Direccion</label>
+				<input type="text" class="form-control" name="direccion" autocomplete="off" value="{{$proveedor->direccion}}">
 				<div class="row">
 					<div class="col-md-12 text-center">
 				    <a href="{{route('proveedors.index')}}" class="btn btn-danger">Cancelar</a>

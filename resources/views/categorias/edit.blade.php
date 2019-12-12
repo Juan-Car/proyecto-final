@@ -17,7 +17,7 @@
 				<label for="nombre">Nombres</label>
 				<input type="text" class="form-control" name="nombre" autocomplete="off" value="{{$categoria->nombre}}">
 				<label for="descripcion">Descripcion</label>
-				<input type="text" class="form-control" name="descripcion" autocomplete="off" value="{{$categoria->descricion}}">
+				<input type="text" class="form-control" name="descripcion" autocomplete="off" value="{{$categoria->descripcion}}">
 				<div class="row">
 					<div class="col-md-12 text-center">
 				    <a href="{{route('categorias.index')}}" class="btn btn-danger">Cancelar</a>

@@ -40,7 +40,10 @@ class ClienteController extends Controller
         $request->validate([
             'nombre' => 'required',
             'apellido' => 'required',
+            'fecha' => 'required',
+            'direccion' => 'required',
             'telefono' => 'required',
+            'sexo' => 'required',
         ]);
 
         Cliente::create($request->all());
@@ -84,7 +87,10 @@ class ClienteController extends Controller
         $request->validate([
             'nombre' => 'required',
             'apellido' => 'required',
+            'fecha' => 'required',
+            'direccion' => 'required',
             'telefono' => 'required',
+            'sexo' => 'required',
         ]);
 
 

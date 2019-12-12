@@ -41,6 +41,7 @@ class ProveedorController extends Controller
             'nombre' => 'required',
             'apellido' => 'required',
             'telefono' => 'required',
+            'direccion' => 'required',
         ]);
 
         Proveedor::create($request->all());
@@ -85,6 +86,7 @@ class ProveedorController extends Controller
             'nombre' => 'required',
             'apellido' => 'required',
             'telefono' => 'required',
+            'direccion' => 'required',
         ]);
 
 

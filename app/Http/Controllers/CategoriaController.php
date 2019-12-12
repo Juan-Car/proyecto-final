@@ -38,7 +38,7 @@ class CategoriaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre' => 'required',
+           'nombre' => 'required',
             'descripcion' => 'required',
         ]);
 
@@ -46,7 +46,7 @@ class CategoriaController extends Controller
 
        
         Session::flash('message','Categoria creado correctamente');
-        return redirect()->route('categorias.index');
+        return redirect()->route('categorias.index'); 
     }
 
     /**

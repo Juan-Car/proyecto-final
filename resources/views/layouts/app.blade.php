@@ -22,7 +22,7 @@
 </head>
 <body class="fondo">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <h4>&#x1f43e DOG-TORS</h4>
@@ -35,17 +35,54 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         @guest
-                        @else                        
-                            <a class="nav-item nav-link" href="{{route('usuario')}}">Usuario</a>
-                            <a class="nav-item nav-link" href="{{route('clientes.index')}}">Clientes</a>
-                            <a class="nav-item nav-link" href="{{route('proveedors.index')}}">Proveedores</a>
-                            <a class="nav-item nav-link" href="{{route('categorias.index')}}">Categorias</a>
-                            <a class="nav-item nav-link" href="">Servicios</a>
-                            <a class="nav-item nav-link" href="">Productos</a>
-                            <a class="nav-item nav-link" href="">Compras</a>
-                            <a class="nav-item nav-link" href="">Ventas</a>
-                            <a class="nav-item nav-link" href="">Noticias</a>
-                            <a class="nav-item nav-link" href="">Promociones</a>
+                        @else
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuarios </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{route('usuario')}}">Usuario</a>
+                                <a class="dropdown-item" href="{{route('clientes.index')}}">Clientes</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{route('proveedors.index')}}">Proveedores</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mascotas </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{route('categorias.index')}}">Categoria</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{route('mascotas.index')}}">Mascota</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Productos </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{route('tipos.index')}}">Tipos</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{route('productos.index')}}">Producto</a>
+                            </div>
+                        </li><li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Servicios </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{route('servicios.index')}}">Servicios</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{route('vacunas.index')}}">Control Vacunas</a>
+                            </div>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{route('tratamientos.index')}}">Tratamientos <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{route('medicinas.index')}}">Medicinas <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{route('boletas.index')}}">Boleta Pago <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Promociones <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Noticias <span class="sr-only">(current)</span></a>
+                        </li>                            
                         @endguest 
                     </ul>
 

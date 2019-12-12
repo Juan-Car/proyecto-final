@@ -18,6 +18,8 @@
 				<input type="text" class="form-control" name="apellido" autocomplete="off">
 				<label for="telefono">Telefono</label>
 				<input type="text" class="form-control" name="telefono" autocomplete="off" required>
+				<label for="direccion">Direccion</label>
+				<input type="text" class="form-control" name="direccion" autocomplete="off" required>
 				<br>
 				<a href="{{ route('proveedors.index') }}" class="btn btn-danger">Cancelar</a>
 		        <button type="submit" class="btn btn-primary">Registrar</button>

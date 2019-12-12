@@ -19,6 +19,7 @@
                             <th colspan="2">Acciones</th>
                             <th>Nombres</th>
                             <th>Apellidos</th>
+                            <th>Direccion</th>
                             <th>Telefono</th>
                         </tr>
                     </thead>
@@ -38,6 +39,7 @@
                                 </td>
                                 <td>{{$data->nombre}}</td>
                                 <td>{{$data->apellido}}</td>
+                                <td>{{$data->direccion}}</td>
                                 <td>{{$data->telefono}}</td>
                             </tr>
                         @endforeach

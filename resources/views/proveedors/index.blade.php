@@ -20,6 +20,7 @@
                             <th>Nombres</th>
                             <th>Apellidos</th>
                             <th>Telefono</th>
+                            <th>Direccion</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,6 +40,7 @@
                                 <td>{{$data->nombre}}</td>
                                 <td>{{$data->apellido}}</td>
                                 <td>{{$data->telefono}}</td>
+                                <td>{{$data->direccion}}</td>
                             </tr>
                         @endforeach
                     </tbody>

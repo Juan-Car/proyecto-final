@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-    <h1 class="page-header text-center">Lista de Clientes</h1>
+    <h1 class="page-header text-center">Lista de Categorias</h1>
     <hr>
     <div class="row">
         <div class="col-md-9 offset-md-4">
